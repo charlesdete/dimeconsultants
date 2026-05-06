@@ -1,0 +1,18 @@
+.modules-grid { margin-top: 3rem; }
+.module-card { position: relative; padding: 1.5rem; }
+.module-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.module-number { color: var(--muted-foreground); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; }
+.module-card h3 { font-size: 1.125rem; }
+.module-card p { margin-top: 0.5rem; color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.6; }
+.included-grid { margin-top: 2.5rem; }
+.included-item { display: flex; align-items: flex-start; gap: 0.75rem; border: 1px solid var(--border); border-radius: 0.75rem; background: oklch(0.21 0.045 252 / 60%); padding: 1rem; font-size: 0.875rem; }
+.faq-accordion { max-width: 48rem; margin-top: 2rem; }
+.accordion-item { border-bottom: 1px solid var(--border); }
+.accordion-header { display: flex; }
+.accordion-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; border: 0; background: transparent; padding: 1rem 0; color: var(--foreground); text-align: left; font-size: 1rem; font-weight: 600; }
+.accordion-trigger:hover { text-decoration: underline; }
+.accordion-chevron { width: 1rem; height: 1rem; flex: 0 0 auto; color: var(--muted-foreground); transition: transform 200ms ease; }
+.accordion-trigger[data-state="open"] .accordion-chevron { transform: rotate(180deg); }
+.accordion-content { overflow: hidden; color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.7; }
+.accordion-content-inner { padding-bottom: 1rem; }
+.programme-cta { margin-top: 3rem; }

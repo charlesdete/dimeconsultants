@@ -1,0 +1,138 @@
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--gradient-hero);
+}
+.home-hero-grid, .cta-grid-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+}
+.home-hero-content {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 1.5rem 7rem;
+  text-align: center;
+}
+.home-title {
+  font-size: clamp(3.25rem, 9vw, 5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.home-subtitle {
+  margin-top: 1.5rem;
+  max-width: 42rem;
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+.home-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.home-stats {
+  width: 100%;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--border);
+}
+.stat-card { background: var(--card); padding: 1.5rem; text-align: left; }
+.stat-value { font-size: 2rem; font-weight: 700; }
+.stat-label {
+  margin-top: 0.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.home-section-heading { max-width: 42rem; margin-bottom: 3.5rem; }
+.home-service-card { position: relative; overflow: hidden; padding: 1.5rem; transition: border-color 180ms ease; }
+.home-card-title, .programme-mini-title { margin-top: 1rem; font-size: 1.125rem; font-weight: 700; }
+.home-card-copy, .programme-mini-copy { margin-top: 0.5rem; color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.6; }
+.home-service-glow {
+  position: absolute;
+  top: -2.5rem;
+  right: -2.5rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 999px;
+  background: oklch(0.78 0.16 210 / 10%);
+  opacity: 0;
+  filter: blur(28px);
+  transition: opacity 180ms ease;
+}
+.home-service-card:hover .home-service-glow { opacity: 1; }
+.programme-list { display: grid; gap: 0.75rem; margin-top: 1.5rem; list-style: none; font-size: 0.875rem; }
+.programme-list li { display: flex; align-items: center; gap: 0.75rem; }
+.cyan-icon { color: var(--cyan); flex: 0 0 auto; }
+.programme-link { margin-top: 2rem; }
+.programme-panel-wrap { position: relative; }
+.programme-panel { position: relative; border-radius: 1.5rem; padding: 2rem; }
+.programme-panel-list { display: grid; gap: 1rem; }
+.programme-panel-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: oklch(0.21 0.045 252 / 60%);
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+.programme-panel-glow {
+  position: absolute;
+  inset: -1rem;
+  z-index: -1;
+  border-radius: 1.5rem;
+  background: oklch(0.78 0.16 210 / 10%);
+  filter: blur(42px);
+}
+.logo-heading { margin-bottom: 2.5rem; text-align: center; }
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--border);
+}
+.logo-cell {
+  display: flex;
+  min-height: 6rem;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  padding: 1rem;
+  color: var(--muted-foreground);
+  text-align: center;
+  font-size: 0.875rem;
+}
+.home-cta { position: relative; overflow: hidden; border-top: 1px solid var(--border); }
+.cta-grid-layer { opacity: 0.3; }
+.home-cta-content { position: relative; max-width: 56rem; margin: 0 auto; padding: 6rem 1.5rem; text-align: center; }
+.home-cta-copy { max-width: 36rem; margin: 1rem auto 0; color: var(--muted-foreground); line-height: 1.7; }
+.home-cta .button-primary { margin-top: 2rem; }
+@media (min-width: 640px) { .home-actions { flex-direction: row; } }
+@media (min-width: 768px) {
+  .home-hero-content { padding-top: 8rem; }
+  .home-title { font-size: 5rem; }
+  .home-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .stat-value { font-size: 2.5rem; }
+  .logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) { .logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }

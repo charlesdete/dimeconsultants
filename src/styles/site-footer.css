@@ -1,0 +1,25 @@
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--deep);
+}
+.site-footer-grid {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+  padding: 3.5rem 1.5rem;
+}
+.footer-brand { display: grid; gap: 1rem; }
+.footer-logo { height: 2.5rem; width: auto; }
+.footer-tagline, .footer-list, .footer-bottom { color: var(--muted-foreground); font-size: 0.875rem; }
+.footer-social { display: flex; gap: 0.75rem; color: var(--muted-foreground); }
+.footer-social a:hover, .footer-link:hover { color: var(--cyan); }
+.footer-heading { margin-bottom: 0.75rem; color: var(--foreground); font-size: 0.875rem; font-weight: 700; }
+.footer-list { display: grid; gap: 0.5rem; list-style: none; }
+.footer-contact-item { display: flex; align-items: center; gap: 0.5rem; }
+.footer-contact-item.align-start { align-items: flex-start; }
+.footer-contact-icon { color: var(--cyan); flex: 0 0 auto; }
+.footer-bottom { border-top: 1px solid var(--border); padding: 1.25rem; text-align: center; font-size: 0.75rem; }
+@media (min-width: 768px) {
+  .site-footer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
