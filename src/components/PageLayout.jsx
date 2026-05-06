@@ -1,11 +1,14 @@
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { WhatsAppButton } from "./WhatsAppButton";
+
 export function PageLayout({ children }) {
-    return (<div className="flex min-h-screen flex-col bg-background">
+  return (
+    <div className="page-layout">
       <SiteHeader />
-      <main className="flex-1">{children}</main>
+      <main className="page-main">{children}</main>
       <SiteFooter />
       <WhatsAppButton />
-    </div>);
+    </div>
+  );
 }

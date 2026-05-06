@@ -1,3 +1,20 @@
+@import "./styles/root.css";
+@import "./styles/layout.css";
+@import "./styles/site-header.css";
+@import "./styles/site-footer.css";
+@import "./styles/whatsapp-button.css";
+@import "./styles/neural-background.css";
+@import "./styles/section.css";
+@import "./styles/home.css";
+@import "./styles/about.css";
+@import "./styles/services.css";
+@import "./styles/contact.css";
+@import "./styles/insights.css";
+@import "./styles/programme.css";
+@import "./styles/scanner.css";
+@import "./styles/stories.css";
+@import "./styles/use-cases.css";
+
 :root {
   --radius: 0.75rem;
   --background: oklch(0.16 0.04 250);
