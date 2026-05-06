@@ -59,3 +59,96 @@ ul { margin: 0; padding: 0; }
   backdrop-filter: blur(12px);
   border: 1px solid oklch(0.78 0.16 210 / 0.15);
 }
+
+.page-title {
+  max-width: 48rem;
+  font-size: clamp(2.8rem, 7vw, 4rem);
+  line-height: 1.05;
+  font-weight: 700;
+}
+.page-copy {
+  margin-top: 1.5rem;
+  max-width: 42rem;
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.12;
+  font-weight: 700;
+}
+.section-copy {
+  margin-top: 1rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+}
+.card:hover { border-color: oklch(0.78 0.16 210 / 50%); }
+.icon-box {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: oklch(0.78 0.16 210 / 10%);
+  color: var(--cyan);
+}
+.button-primary,
+.button-secondary,
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+.button-primary {
+  border: 0;
+  border-radius: 999px;
+  background: var(--cyan);
+  padding: 0.9rem 1.75rem;
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-glow);
+}
+.button-secondary {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.9rem 1.75rem;
+  color: var(--foreground);
+}
+.button-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+.text-link { color: var(--cyan); }
+.text-link:hover { text-decoration: underline; }
+.split-band {
+  border-block: 1px solid var(--border);
+  background: var(--deep);
+}
+.band-grid {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+  padding: 6rem 1.5rem;
+}
+.responsive-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 768px) {
+  .responsive-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .responsive-grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .band-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+}
+@media (min-width: 1024px) {
+  .responsive-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .responsive-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .page-title { font-size: 2.5rem; }
+  .button-primary, .button-secondary { width: 100%; }
+}
