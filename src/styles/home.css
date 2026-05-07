@@ -113,14 +113,20 @@
 }
 .logo-cell {
   display: flex;
-  min-height: 6rem;
+  min-height: 8rem;
   align-items: center;
   justify-content: center;
-  background: var(--card);
-  padding: 1rem;
-  color: var(--muted-foreground);
-  text-align: center;
-  font-size: 0.875rem;
+  background: #ffffff;
+  padding: 1.25rem;
+  transition: transform 220ms ease;
+}
+.logo-cell:hover { transform: translateY(-2px); }
+.logo-cell img {
+  max-width: 100%;
+  max-height: 4rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 .home-cta { position: relative; overflow: hidden; border-top: 1px solid var(--border); }
 .cta-grid-layer { opacity: 0.3; }

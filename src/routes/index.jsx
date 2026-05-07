@@ -4,6 +4,27 @@ import { ArrowRight, Brain, Cog, Shield, Sparkles, TrendingUp, Users, Zap, Check
 import { PageLayout } from "@/components/PageLayout";
 import { NeuralBackground } from "@/components/NeuralBackground";
 import { Section, Eyebrow } from "@/components/Section";
+import logoGuardian from "@/assets/logos/guardian-bank.jpg";
+import logoMyCredit from "@/assets/logos/mycredit.jpg";
+import logoAbsa from "@/assets/logos/absa.jpg";
+import logoAdehyeman from "@/assets/logos/adehyeman.jpg";
+import logoApptivate from "@/assets/logos/apptivate.jpg";
+import logoSasapay from "@/assets/logos/sasapay.jpg";
+import logoMtek from "@/assets/logos/mtek.jpg";
+import logoKlinik from "@/assets/logos/klinik.jpg";
+import logoPayroll from "@/assets/logos/payroll.jpg";
+
+const partners = [
+  { name: "Guardian Bank", src: logoGuardian },
+  { name: "MyCredit", src: logoMyCredit },
+  { name: "Absa", src: logoAbsa },
+  { name: "Adehyeman Savings & Loans", src: logoAdehyeman },
+  { name: "Apptivate.Africa", src: logoApptivate },
+  { name: "SasaPay", src: logoSasapay },
+  { name: "mTek Services", src: logoMtek },
+  { name: "Klinik", src: logoKlinik },
+  { name: "Payroll", src: logoPayroll },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
