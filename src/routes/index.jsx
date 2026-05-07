@@ -51,7 +51,7 @@ function HomePage() {
       <div className="home-hero-grid grid-bg" /><NeuralBackground />
       <div className="home-hero-content">
         <Eyebrow>Driving global efficiency with AI</Eyebrow>
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="home-title">Forge Your <span className="gradient-text">AI-Ready</span><br /> Workforce</motion.h1>
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="home-title">Driving Global <span className="gradient-text">Efficiency</span><br /> with AI</motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.7 }} className="home-subtitle">We help organisations across every industry deploy AI confidently — through hands-on training, process reengineering and measurable outcomes.</motion.p>
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="home-actions">
           <Link to="/contact" className="button-primary">Book a Discovery Call <ArrowRight size={18} /></Link>
