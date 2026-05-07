@@ -4,4 +4,24 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
+  "env": {
+    "production": {
+      "vars": {
+        "SMTP_HOST": "smtp.gmail.com",
+        "SMTP_PORT": "587",
+        "SMTP_USER": "charlesdete52@gmail.com",
+        "SMTP_PASS": "xzbi opje kmdg lkqa",
+        "RECIPIENT_EMAIL": "hello@dimeconsultants.co.ke",
+      },
+    },
+    "development": {
+      "vars": {
+        "SMTP_HOST": "localhost",
+        "SMTP_PORT": "1025",
+        "SMTP_USER": "test",
+        "SMTP_PASS": "test",
+        "RECIPIENT_EMAIL": "hello@dimeconsultants.co.ke",
+      },
+    },
+  },
 }
