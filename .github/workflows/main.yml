@@ -29,9 +29,12 @@ jobs:
           pip install -r requirements.txt
 
       # Run Django tests
-      - name: Run tests
-        run: python manage.py test
-        working-directory: ai-navigator
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run frontend tests
+        run: npm test
+
 
 
       # Build Docker image
