@@ -3,5 +3,96 @@ import { Linkedin, Facebook, Instagram, Twitter, Youtube, Mail, MapPin, Phone } 
 import logo from "@/assets/dime-logo.png";
 
 export function SiteFooter() {
-  return <footer className="site-footer"><div className="site-footer-grid"><div className="footer-brand"><img src={logo} alt="Dime Consultants" className="footer-logo" /><p className="footer-tagline">Driving global efficiency with AI.</p><div className="footer-social"><a href="https://www.linkedin.com/" aria-label="LinkedIn"><Linkedin size={18} /></a><a href="https://www.facebook.com/" aria-label="Facebook"><Facebook size={18} /></a><a href="https://www.instagram.com/" aria-label="Instagram"><Instagram size={18} /></a><a href="https://x.com/" aria-label="X"><Twitter size={18} /></a><a href="https://www.youtube.com/" aria-label="YouTube"><Youtube size={18} /></a></div></div><div><h4 className="footer-heading">Company</h4><ul className="footer-list"><li><Link to="/about" className="footer-link">About</Link></li><li><Link to="/services" className="footer-link">Services</Link></li><li><Link to="/use-cases" className="footer-link">Use Cases</Link></li><li><Link to="/insights" className="footer-link">Insights</Link></li></ul></div><div><h4 className="footer-heading">Programme</h4><ul className="footer-list"><li><Link to="/programme" className="footer-link">AI-Ready Workforce</Link></li><li><Link to="/scanner" className="footer-link">AI Readiness Scanner</Link></li><li><Link to="/success-stories" className="footer-link">Success Stories</Link></li></ul></div><div><h4 className="footer-heading">Contact</h4><ul className="footer-list"><li className="footer-contact-item align-start"><MapPin size={16} className="footer-contact-icon" />Two Rivers Mall, Nairobi, Kenya</li><li className="footer-contact-item"><Mail size={16} className="footer-contact-icon" />hello@dimeconsultants.co.ke</li><li className="footer-contact-item"><Phone size={16} className="footer-contact-icon" />+254 700 000 000</li></ul></div></div><div className="footer-bottom">© {new Date().getFullYear()} Dime Consultants Limited. All rights reserved.</div></footer>;
+  return (
+    <footer className="site-footer">
+      <div className="site-footer-grid">
+        <div className="footer-brand">
+          <img src={logo} alt="Dime Consultants" className="footer-logo" />
+          <p className="footer-tagline">Driving global efficiency with AI.</p>
+          <div className="footer-social">
+            <a href="https://www.linkedin.com/" aria-label="LinkedIn">
+              <Linkedin size={18} />
+            </a>
+            <a href="https://www.facebook.com/" aria-label="Facebook">
+              <Facebook size={18} />
+            </a>
+            <a href="https://www.instagram.com/" aria-label="Instagram">
+              <Instagram size={18} />
+            </a>
+            <a href="https://x.com/" aria-label="X">
+              <Twitter size={18} />
+            </a>
+            <a href="https://www.youtube.com/" aria-label="YouTube">
+              <Youtube size={18} />
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 className="footer-heading">Company</h4>
+          <ul className="footer-list">
+            <li>
+              <Link to="/about" className="footer-link">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="footer-link">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/use-cases" className="footer-link">
+                Use Cases
+              </Link>
+            </li>
+            <li>
+              <Link to="/insights" className="footer-link">
+                Insights
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-heading">Programme</h4>
+          <ul className="footer-list">
+            <li>
+              <Link to="/programme" className="footer-link">
+                AI-Ready Workforce
+              </Link>
+            </li>
+            <li>
+              <Link to="/scanner" className="footer-link">
+                AI Readiness Scanner
+              </Link>
+            </li>
+            <li>
+              <Link to="/success-stories" className="footer-link">
+                Success Stories
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-heading">Contact</h4>
+          <ul className="footer-list">
+            <li className="footer-contact-item align-start">
+              <MapPin size={16} className="footer-contact-icon" />
+              Two Rivers Mall, Nairobi, Kenya
+            </li>
+            <li className="footer-contact-item">
+              <Mail size={16} className="footer-contact-icon" />
+              info@dime.co.ke
+            </li>
+            <li className="footer-contact-item">
+              <Phone size={16} className="footer-contact-icon" />
+              +254 768 528 200
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        © {new Date().getFullYear()} Dime Consultants Limited. All rights reserved.
+      </div>
+    </footer>
+  );
 }

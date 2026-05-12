@@ -2,10 +2,10 @@ import { createServerFn } from "@tanstack/react-start";
 
 // Dynamic import to ensure nodemailer only loads on server
 const getNodemailer = async () => {
-  if (typeof window !== 'undefined') {
-    throw new Error('This function can only be called on the server');
+  if (typeof window !== "undefined") {
+    throw new Error("This function can only be called on the server");
   }
-  return await import('nodemailer');
+  return await import("nodemailer");
 };
 
 interface ContactFormData {
@@ -81,10 +81,10 @@ export const sendContactEmail = createServerFn(
       // Send email
       await transporter.sendMail(mailOptions);
 
-      return { success: true, message: 'Email sent successfully' };
+      return { success: true, message: "Email sent successfully" };
     } catch (error) {
-      console.error('Email error:', error);
-      throw new Error(error instanceof Error ? error.message : 'Failed to send email');
+      console.error("Email error:", error);
+      throw new Error(error instanceof Error ? error.message : "Failed to send email");
     }
-  }
+  },
 );

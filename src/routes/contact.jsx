@@ -3,7 +3,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { Section, Eyebrow } from "@/components/Section";
 import { Mail, MapPin, Phone, Calendar, Send } from "lucide-react";
 import { useState } from "react";
-import { sendContactEmail } from "./api.send-email";
+import { sendContactEmail } from "@/lib/send-email";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -67,15 +67,18 @@ function ContactPage() {
               <Calendar size={20} />
               <span>Discovery Call</span>
             </div>
-            <h2>Schedule on Calendly</h2>
-            <p>Pick a time that works. We'll send a calendar invite with the call link.</p>
+            <h2>Chat with our AI Agent</h2>
+            <p>
+              Have an intelligent conversation with our AI to explore your needs and find the best
+              path forward.
+            </p>
             <a
-              href="https://calendly.com/dimeconsultants/discovery"
+              href="https://executives.dimeconsultants.africa/"
               target="_blank"
               rel="noopener noreferrer"
               className="button-primary"
             >
-              Open Calendly
+              Start Conversation
             </a>
             <div className="contact-details">
               <div className="contact-detail">
@@ -84,11 +87,11 @@ function ContactPage() {
               </div>
               <div className="contact-detail">
                 <Mail size={16} className="cyan-icon" />
-                hello@dimeconsultants.co.ke
+                info@dime.co.ke
               </div>
               <div className="contact-detail">
                 <Phone size={16} className="cyan-icon" />
-                +254 700 000 000
+                +254 768 528 200
               </div>
             </div>
           </div>

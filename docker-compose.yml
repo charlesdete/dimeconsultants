@@ -1,0 +1,40 @@
+# version: "3.8"
+
+services:
+  # Main application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: dime-ai-navigator
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - SMTP_HOST=${SMTP_HOST:-localhost}
+      - SMTP_PORT=${SMTP_PORT:-1025}
+      - SMTP_USER=${SMTP_USER:-test}
+      - SMTP_PASS=${SMTP_PASS:-test}
+      - RECIPIENT_EMAIL=${RECIPIENT_EMAIL:-hello@dimeconsultants.co.ke}
+    depends_on:
+      - mailhog
+    networks:
+      - dime-network
+
+  # Optional: Mailhog service for testing emails locally
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: dime-mailhog
+    ports:
+      - "1025:1025" # SMTP port
+      - "8025:8025" # Web UI port
+    networks:
+      - dime-network
+
+networks:
+  dime-network:
+    driver: bridge
