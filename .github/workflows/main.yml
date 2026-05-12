@@ -30,8 +30,9 @@ jobs:
 
       # Run Django tests
       - name: Run tests
-        run: |
-          python manage.py test
+        run: python manage.py test
+        working-directory: ai-navigator
+
 
       # Build Docker image
       - name: Build Docker image
