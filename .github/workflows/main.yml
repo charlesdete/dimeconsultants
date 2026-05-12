@@ -19,7 +19,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.12"
+
 
       # Install dependencies
       - name: Install dependencies
@@ -28,9 +29,13 @@ jobs:
           pip install -r requirements.txt
 
       # Run Django tests
-      - name: Run tests
-        run: |
-          python manage.py test
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run frontend tests
+        run: npm test
+
+
 
       # Build Docker image
       - name: Build Docker image
