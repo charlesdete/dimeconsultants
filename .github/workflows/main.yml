@@ -47,3 +47,4 @@ jobs:
         run: |
           docker build -f Dockerfile.prod -t ${{ secrets.DOCKERHUB_USERNAME }}/ai-navigator-frontend:latest .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/ai-navigator-frontend:latest
+
