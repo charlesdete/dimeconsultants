@@ -1,7 +1,27 @@
 # Dockerfile.production - Optimized for Cloudflare Workers deployment
 # This is an alternative production build specifically for Cloudflare
+FROM node:24-alpine AS build
 
-FROM node:24-alpine
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Build production assets
+RUN npm run build
+
+# Serve with nginx
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
 
 WORKDIR /app
 
@@ -20,7 +40,7 @@ RUN npm run build
 # No need to install Wrangler here - deploy using:
 # docker exec <container> npx wrangler deploy
 
-EXPOSE 8080
+EXPOSE 3000
 
 # Default command for development/testing
 CMD ["npm", "run", "preview"]

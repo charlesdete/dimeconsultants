@@ -1,37 +1,39 @@
-# version: "3.8"
+# docker-compose.prod.yml
+version: "3.8"
 
 services:
-  # Main application service
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: development
+    # Prefer pulling a prebuilt image in production. Replace with your registry/image:tag.
+    image: myregistry.example.com/dime-ai-navigator:latest
+    # If you prefer to build on the host, uncomment the build block and ensure Dockerfile has a "production" target.
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   target: production
     container_name: dime-ai-navigator
     ports:
-      - "8080:8080"
-    volumes:
-      - .:/app
-      - /app/node_modules
+      - "3030:3030"
     environment:
-      - NODE_ENV=development
-      - SMTP_HOST=${SMTP_HOST:-localhost}
-      - SMTP_PORT=${SMTP_PORT:-1025}
-      - SMTP_USER=${SMTP_USER:-test}
-      - SMTP_PASS=${SMTP_PASS:-test}
-      - RECIPIENT_EMAIL=${RECIPIENT_EMAIL:-hello@dimeconsultants.co.ke}
-    depends_on:
-      - mailhog
-    networks:
-      - dime-network
-
-  # Optional: Mailhog service for testing emails locally
-  mailhog:
-    image: mailhog/mailhog:v1.0.1
-    container_name: dime-mailhog
-    ports:
-      - "1025:1025" # SMTP port
-      - "8025:8025" # Web UI port
+      - NODE_ENV=production
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - RECIPIENT_EMAIL=${RECIPIENT_EMAIL}
+    # Do not mount source code in production
+    # volumes: []
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     networks:
       - dime-network
 
