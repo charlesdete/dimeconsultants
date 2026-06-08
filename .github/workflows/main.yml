@@ -110,7 +110,6 @@ jobs:
     name: Deploy to dimeconsultants.africa
     needs: docker-build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
     steps:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
@@ -130,4 +129,3 @@ jobs:
             docker compose up -d --remove-orphans
             docker image prune -f
             echo "✓ Deployment complete — dimeconsultants.africa is live!"
-
