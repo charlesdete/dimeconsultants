@@ -4,7 +4,7 @@ version: "3.8"
 services:
   app:
     # Prefer pulling a prebuilt image in production. Replace with your registry/image:tag.
-    image: myregistry.example.com/dime-ai-navigator:latest
+    image: app
     # If you prefer to build on the host, uncomment the build block and ensure Dockerfile has a "production" target.
     # build:
     #   context: .
@@ -24,7 +24,7 @@ services:
     # volumes: []
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:3030/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3

@@ -14,8 +14,8 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Expose dev port
-EXPOSE 3000
+# Expose prod port
+EXPOSE 3030
 
-# Run dev server
+# Run prod server
 CMD ["npm", "run", "prod"]
