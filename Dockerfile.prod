@@ -1,17 +1,21 @@
-# Dockerfile.prod
+# Dockerfile.dev
 FROM node:24-alpine
 
 WORKDIR /app
 
+# Copy package files
 COPY package.json package-lock.json ./
 
-# Use ci for clean reproducible install
-RUN npm ci --omit=dev
+# Install dependencies
+RUN npm install 
 
+RUN npm ci
+
+# Copy source code
 COPY . .
 
-RUN npm run build
-
+# Expose prod port
 EXPOSE 3030
 
+# Run prod server
 CMD ["npm", "run", "prod"]
