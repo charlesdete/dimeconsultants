@@ -106,30 +106,30 @@ jobs:
   # JOB 3 — Deploy to Server
   # ===========================================================================
   deploy:
-    name: Deploy to dimeconsultants.africa
-    needs: docker-build
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  name: Deploy to dimeconsultants.africa
+  needs: docker-build
+  runs-on: ubuntu-latest
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            set -e
-            echo "→ Logging into GitHub Container Registry..."
-            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-            echo "→ Pulling latest image..."
-            docker pull ${{ env.IMAGE_NAME }}:latest
-            echo "→ Navigating to app directory..."
-            cd /root/web/dimeconsultants
-            echo "→ Restarting containers..."
-            docker compose -f docker-compose.prod.yml pull
-            docker compose -f docker-compose.prod.yml up -d --remove-orphans
-            echo "→ Cleaning up old images..."
-            docker image prune -f
-            echo "✓ Deployment complete — dimeconsultants.africa is live!"
+  steps:
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          set -e
+          echo "→ Logging into GitHub Container Registry..."
+          echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.repository_owner }}" --password-stdin
+          echo "→ Pulling latest image..."
+          docker pull ${{ env.IMAGE_NAME }}:latest
+          echo "→ Navigating to app directory..."
+          cd /root/web/dimeconsultants
+          echo "→ Restarting containers..."
+          docker compose -f docker-compose.prod.yml pull
+          docker compose -f docker-compose.prod.yml up -d --remove-orphans
+          echo "→ Cleaning up old images..."
+          docker image prune -f
+          echo "✓ Deployment complete — dimeconsultants.africa is live!"
