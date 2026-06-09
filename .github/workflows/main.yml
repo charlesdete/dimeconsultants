@@ -7,14 +7,12 @@ on:
     branches: [main]
 
 env:
-  # GitHub Container Registry — no Docker Hub account needed
-  # Image will be at: ghcr.io/<your-github-username>/ai-navigator-frontend
+  # GitHub Container Registry image path
   IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/ai-navigator-frontend
 
-# Required for GHCR push and SSH deploy
 permissions:
   contents: read
-  packages: write # allows pushing to ghcr.io
+  packages: write # required for pushing to GHCR
 
 jobs:
   # ===========================================================================
@@ -52,22 +50,17 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: dist/ # change to 'build/' if using Create React App
+          path: dist/
           retention-days: 1
 
   # ===========================================================================
   # JOB 2 — Docker Build & Push to GHCR
-  # Uses the built-in GITHUB_TOKEN — no Docker Hub login required
-  # Only runs on push to main (not on pull requests)
   # ===========================================================================
   docker-build:
     name: Docker Build & Push (GHCR)
     needs: build-test
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    outputs:
-      image_tag: ${{ steps.meta.outputs.version }}
 
     steps:
       - name: Checkout code
@@ -87,9 +80,9 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }} # ← built-in, no setup needed
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract Docker metadata (tags & labels)
+      - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
@@ -98,7 +91,7 @@ jobs:
             type=raw,value=latest
             type=sha,prefix=,format=short
 
-      - name: Build and push image to GHCR
+      - name: Build and push image
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -111,21 +104,14 @@ jobs:
 
   # ===========================================================================
   # JOB 3 — Deploy to Server
-  # SSHs into your server, pulls from GHCR and restarts containers
   # ===========================================================================
   deploy:
     name: Deploy to dimeconsultants.africa
     needs: docker-build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    environment: dimeconsultants # ← tells GitHub to use secrets from this environment
 
     steps:
-      - name: Decode SSH key
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64 -d > /tmp/deploy_key
-          chmod 600 /tmp/deploy_key
-
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -135,22 +121,15 @@ jobs:
           port: 22
           script: |
             set -e
-
             echo "→ Logging into GitHub Container Registry..."
-            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io \
-              -u "${{ github.actor }}" --password-stdin
-
-            echo "→ Pulling latest image from GHCR..."
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+            echo "→ Pulling latest image..."
             docker pull ${{ env.IMAGE_NAME }}:latest
-
             echo "→ Navigating to app directory..."
             cd /opt/dime-consultants
-
             echo "→ Restarting containers..."
             docker compose -f docker-compose.prod.yml pull
             docker compose -f docker-compose.prod.yml up -d --remove-orphans
-
             echo "→ Cleaning up old images..."
             docker image prune -f
-
             echo "✓ Deployment complete — dimeconsultants.africa is live!"
