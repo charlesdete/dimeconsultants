@@ -129,3 +129,4 @@ jobs:
             docker compose up -d --remove-orphans
             docker image prune -f
             echo "✓ Deployment complete — dimeconsultants.africa is live!"
+
