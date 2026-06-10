@@ -8,11 +8,7 @@ import path from 'path'
 export default defineConfig({
   resolve: {
     alias: {
-      '#tanstack-router-entry': path.resolve(__dirname, './src/tanstack-router-entry.ts'),
-      '#tanstack-start-entry': path.resolve(__dirname, './src/tanstack-router-entry.ts'),
-      '#tanstack-start-plugin-adapters': path.resolve(__dirname, './src/tanstack-router-entry.ts'),
-      'tanstack-start-manifest:v': path.resolve(__dirname, './src/tanstack-start-manifest.ts'),
-      'tanstack-start-injected-head-scripts:v': path.resolve(__dirname, './src/tanstack-start-injected-head-scripts.ts'),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   plugins: [
@@ -27,8 +23,23 @@ export default defineConfig({
       '@tanstack/start',
     ],
   },
+  ssr: {
+    external: [
+      '@tanstack/start-server-core',
+      '@tanstack/start',
+    ],
+    noExternal: [
+      '@tanstack/react-router',
+    ],
+  },
   build: {
     outDir: 'dist/client',
     emptyOutDir: false,
+    rollupOptions: {
+      external: [
+        '@tanstack/start-server-core',
+        '@tanstack/start',
+      ],
+    },
   },
 })
