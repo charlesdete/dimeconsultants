@@ -1,0 +1,29 @@
+root@vm571donc:~/web/dimeconsultants# df -h
+
+docker build --no-cache -f Dockerfile.prod -t dime-consultants .
+
+docker compose -f docker-compose.prod.yml up -d --force-recreate
+Filesystem      Size  Used Avail Use% Mounted on
+udev            463M     0  463M   0% /dev
+tmpfs            95M  1.7M   94M   2% /run
+/dev/sda1        20G   20G     0 100% /
+tmpfs           474M  1.1M  473M   1% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda15      124M   12M  113M  10% /boot/efi
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/f0552a585a913bc906003f3f65ce997e7b198f94f224d3bf2c60aea46caf6c04/merged
+tmpfs            95M     0   95M   0% /run/user/0
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/3a5529f675a2cc0734ac441eb697d0060b5c38be170e3c085d3ea2b29464528d/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/0341d48bf2627130c0c24a31c34cc37a6194716e2d4e1f749df4fcfec6bc954f/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/70a3418028aa8ebc2c65726f81bebd1d57888d08cc6a78a34423db33a44aa2ea/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/adf1383848a77f3b57d093a574429754a280bb63a28a8106ed74175447c80d8b/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/2dd5d89dc30a94807201c1a0b136718f89cb7b969a279e262de68aab48537c70/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/97050588ad88c9d3d6c35587827fc1dcb8c7834412d5b927cfd5de8b18f1f55e/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/66743ddd46e85d97a53db2f137a55e9683cd8510103b4e09e95194de1a1769e6/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/8bfe55c00e2b727b419dd362aca3fe8e6e2dedf6e2c1090ed9ad4a9dc3da400d/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/345357e97f7523c0908f25f77521847574742febe7aa84da25557de044d988e8/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/3fc1c940ab263b4d022a8778f1ed7c6adb68cb6ce728a62d4fc9df5dc6ddd598/merged
+Sending build context to Docker daemon  1.123MB
+Error response from daemon: Error processing tar file(exit status 1): write /tsconfig.json: no space left on device
+[+] up 1/1
+ ✘ Image dime-consultants Error pull access denied for dime-consultants, repository does not exist or may require 'docker login'... 3.1s
+Error response from daemon: pull access denied for dime-consultants, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
