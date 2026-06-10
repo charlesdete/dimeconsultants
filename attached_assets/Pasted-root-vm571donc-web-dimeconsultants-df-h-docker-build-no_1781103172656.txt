@@ -1,0 +1,195 @@
+root@vm571donc:~/web/dimeconsultants# df -h
+
+docker build --no-cache -f Dockerfile.prod -t dime-consultants .
+
+docker compose -f docker-compose.prod.yml up -d --force-recreate
+Filesystem      Size  Used Avail Use% Mounted on
+udev            463M     0  463M   0% /dev
+tmpfs            95M  1.7M   94M   2% /run
+/dev/sda1        20G   20G     0 100% /
+tmpfs           474M  1.1M  473M   1% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda15      124M   12M  113M  10% /boot/efi
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/f0552a585a913bc906003f3f65ce997e7b198f94f224d3bf2c60aea46caf6c04/merged
+tmpfs            95M     0   95M   0% /run/user/0
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/3a5529f675a2cc0734ac441eb697d0060b5c38be170e3c085d3ea2b29464528d/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/0341d48bf2627130c0c24a31c34cc37a6194716e2d4e1f749df4fcfec6bc954f/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/70a3418028aa8ebc2c65726f81bebd1d57888d08cc6a78a34423db33a44aa2ea/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/adf1383848a77f3b57d093a574429754a280bb63a28a8106ed74175447c80d8b/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/2dd5d89dc30a94807201c1a0b136718f89cb7b969a279e262de68aab48537c70/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/97050588ad88c9d3d6c35587827fc1dcb8c7834412d5b927cfd5de8b18f1f55e/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/66743ddd46e85d97a53db2f137a55e9683cd8510103b4e09e95194de1a1769e6/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/8bfe55c00e2b727b419dd362aca3fe8e6e2dedf6e2c1090ed9ad4a9dc3da400d/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/345357e97f7523c0908f25f77521847574742febe7aa84da25557de044d988e8/merged
+overlay          20G   20G     0 100% /var/lib/docker/overlay2/3fc1c940ab263b4d022a8778f1ed7c6adb68cb6ce728a62d4fc9df5dc6ddd598/merged
+Sending build context to Docker daemon  1.123MB
+Error response from daemon: Error processing tar file(exit status 1): write /tsconfig.json: no space left on device
+[+] up 1/1
+ ✘ Image dime-consultants Error pull access denied for dime-consultants, repository does not exist or may require 'docker login'... 3.1s
+Error response from daemon: pull access denied for dime-consultants, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+root@vm571donc:~/web/dimeconsultants# docker system prune -a --volumes
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all volumes not used by at least one container
+  - all images without at least one container associated to them
+  - all build cache
+
+Are you sure you want to continue? [y/N] y
+
+Deleted Containers:
+3d0dccd5b19d29f51e9a35c20e06adf3c598612421b58400dc9086da60a0b739
+4dae2478a00f3533f4c53ae9ba8d60d3883d41ef55a78a4f1187a4dce7c75df3
+afa8cdb19c5ebbacdc799d47167d43f47e5233fd23f2f9709685b03db81cfb3b
+410c9b3f4e75588215552852a61f038202e65bb3153cf3e9ce0648af801bc56e
+67b6b0e648c150ff1f34b74d181f41d32f17d84f6ff999177c91854aa155ab8a
+f339641331396ac7e97706a586ce9c2c3a0526518a45cc20b403003f307d9b22
+8a75b2d1221009e04e573e4cabf257800e50683237a54e9dab05211ce3c77f0a
+0d1aa12224b43a55176ce720dfc7e54388860a4d252446d24d325e42bb3acef8
+bff003406f8b2e0065f58e0c1ab48159c8b2fb8b486018604ef0800432417ecc
+
+
+Deleted Images:
+deleted: sha256:c94742443f036faa3e499aa295f155715a52e3ea5f47b0d927a1305d7fef7bd1
+deleted: sha256:e2acbbe3899406c5d8bdabed017a33d5acf8b1931696900bf313aada155217ff
+untagged: node:24-alpine
+untagged: node@sha256:2bdb65ed1dab192432bc31c95f94155ca5ad7fc1392fb7eb7526ab682fa5bf14
+untagged: ghcr.io/charlesdete/ai-navigator-frontend@sha256:e6ee998d4a2f9b7502147bce5aa93e643f4c3622d710e1ba7884d3dbeea1a105
+deleted: sha256:d7d0e059f18bd36a3a8699f42d93ca1af1cf428dc8e40aa84f11e5a82adc051e
+deleted: sha256:dc84e79f4ae3a2716a2005bab3576a09919e34c59d329a92d790bf3297d4d07f
+deleted: sha256:41b9c588ac58f89322fc5a31534a4bd2a378affd793cd713ebc5a562dc8c02e2
+deleted: sha256:c683a72217f8250930bfe88609de0a71c40ee6a11ceadfbe26186be2b436f51b
+deleted: sha256:0c1b9d93d547add6d6e82e12b656319bb8c941f7ceeb347203b80355302a681b
+deleted: sha256:cbf1346837a963c29a20dee027b8c8e276391134f0b522fd50aba9cf06d19598
+deleted: sha256:877183063da98816ab8e16fd1718c322a807632854cb1d0bfc5b0f399bcf9189
+deleted: sha256:ade0568dbe1ce9c9cc93f14786f4264f40d2c018bf4b93314f3bc37878149079
+deleted: sha256:14ee607ea1b482a8063b3d81aa85ae4134e203eb801af6b123da2d4faed3ea90
+untagged: node:20-alpine
+untagged: node@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+untagged: node:18-alpine
+untagged: node@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+deleted: sha256:bb55025cdfd1c6ab1c913f6502a7f760c13a787bd33d93e1fd3500ee3ca282de
+deleted: sha256:bb7ca8bdd3f7e0001642e734ffc2bb67c7086ee74d7305c8cc8266899719ca23
+deleted: sha256:63a73bc4880f98cbafa678ae9727f29489bd025dec512ad827c367803dc5220f
+deleted: sha256:9656c31dde9ca76f4b5b59f95cae8f77d0887daadce9d12e6d2f2e8358b84036
+deleted: sha256:002f3382566935850c198d70d668f361c339ae98f398df7ade3f7d424e564097
+deleted: sha256:73ec7d64f37abba3a28461e3889100b549655dc3860cfe9a071d83a9255d7e7f
+deleted: sha256:c8acb28df29b76996b02d05a5d5d0b58982ca747a04b9d6cfd36a0b6d876bfc8
+deleted: sha256:6a3beb8bc49f50280588c057dc9a11afc98e8eb30da66197146e042a6122cc2e
+deleted: sha256:b4cf4fe79767a02de4bca65cae032d53cda67ea039aae850181b6393ce5ac338
+deleted: sha256:22114f5b47161a597998c48e339fac8ded77f7bba0a14c595e6a139afdf49cd8
+deleted: sha256:c792f2e2863577f4f4d0b0fd1bdde559a482ad3dad5b31945e7733e3e08f0335
+deleted: sha256:5ebdc833272bd3ba0e9933c0ae388dddf89a9539b0e4a9ad533b4bae9f2c0d03
+deleted: sha256:5b28466555c5d5f0cfc6aaa7234c329e3697898ea3656599ddcd9d4708eee9bc
+deleted: sha256:e697d356b54548b0b38700aa0d4288695e0b9f51406a1c99879e1cec8084fc93
+deleted: sha256:2bca1d27cc0f0e271e5e477345335f847501cf478015e1570c973ce2a148400a
+deleted: sha256:e7b6848ba62aa608eaa9bb34165a0f058a00b7b67338949649f2095d434ebd9f
+deleted: sha256:dd91aaa06455d7bea8582c4961f6971b849c651505249e7b210932f8a3db0647
+deleted: sha256:16d5e5fe2463f6b6c579479c8dc64cf88bf5c32f77832a35e65a5feb5c9ba407
+deleted: sha256:6c7811cb4b94de741af857ef6d1182ee1af5f0e4d44452864ce14a0d585f3f2a
+deleted: sha256:fe3f3f0ada50276f89b34dcbe257de97cdb632356cbbc5334d56c4de7eadafdb
+deleted: sha256:c479fb6ae6f041ef24c9acfecbbe399e7f479874a97796916ece204f001d4ee8
+deleted: sha256:569b13683367433c0230c267ded44001ca40be0797374de239a9b3c5fd9262f8
+deleted: sha256:0d1d09bf8f612df987b1b6c9b24df1547abf5a402f54aa225df658d9e3f3f965
+deleted: sha256:6a5c361a018272e543332f0885aec640ef7d447bb863c50b6c74ed95447b8560
+deleted: sha256:abfdf680f0e4fc28de723001515d61b0cf32650495b732f6b66231f6a930d114
+deleted: sha256:dcec518343b39b8e39af0063698a701514323aca4c0c7050426827bdba4f9a93
+deleted: sha256:ee77c6cd7c1886ecc802ad6cedef3a8ec1ea27d1fb96162bf03dd3710839b8da
+deleted: sha256:0651a8adb9173aa253206e2403d033598996ddd3d84a2f85d874196f2c65d6fd
+deleted: sha256:3603644c7663feb5f3c537355d5b91dc0fab5cb7df286b77575016e4edfeea05
+deleted: sha256:339e88a868ff4123c6e91492fe1f29bd6932ef7a20680f489f0dc4e17cf04328
+deleted: sha256:08000c18d16dadf9553d747a58cf44023423a9ab010aab96cf263d2216b8b350
+deleted: sha256:93b05734380506a1343658ee5990387d2baf9e4fe753a8fe7058b09b2d1936d3
+deleted: sha256:d649d49c29fe326a0898d845a0394b3b2017e56c2de83c75fb08efb713479061
+deleted: sha256:1aa9a6c8aaddb90f744dbb11e3dc60042a387aead1663e09571ce98ad71fc43a
+deleted: sha256:3378bb7cbcfb96c34bfc0a210922b79cf82afb5f79e399a09ef56696081933af
+deleted: sha256:db5fc8c98752c8282f87cb7345b141fc2091a38146dfd5e00e5fcae3d5c688f9
+deleted: sha256:bea76fb531c93d7c52e883aa967bf7230ad6146ed15c6b69031ff0af609e476d
+deleted: sha256:b5ec0c22eaaafd53c9b5a5bd557984381de8dafe1510cb88e34c0a43a1b4109b
+deleted: sha256:b7538968025ae10e3c9ebf198e5e6d6f2b8e7cd25bcef7dfa07dd07f4c5acb74
+deleted: sha256:54baa422eda1eb16ba8a4367424aac76a20c930d1d50b96f109bb235a5933c29
+deleted: sha256:b55626a7b5dfe1bde46563e6580d750849b569a5d8a59fcbcfe8b81827c35300
+deleted: sha256:dbfc05898e42130d9f4897335815473dddf85fb424c33c291c626989492b6edf
+deleted: sha256:9f906331892c6eb26afa5a3c86abbb4e84bfd04341ec3a7c6accea402e939c27
+deleted: sha256:8e9b4f3ce9cec3e8085a432a9d6edf2b2df0bb000e8fd1a8d2d16796422099f6
+deleted: sha256:d9d8207235bd9f88e5cbbb2daed9cc49fe5d9827ff87eb598ba3d248a48fb615
+deleted: sha256:94636501b8e41c60ec1623e469ce76962ab0b2cd008bd0e7aef1c3f25bf02050
+deleted: sha256:b0f9c8d42123c62a2a51ff029497ea3380cd0d4c43718ab0d544be6e3eb0053c
+deleted: sha256:df071fe09fcf17ba12ac3860825d24b39dd9989476eff3a6d6140f6dda57eb98
+deleted: sha256:d6623214e0e5e9a0a5476e4838301cfe9ae4bc867a28a07aa57be44547321beb
+deleted: sha256:ecc732eec52ff75e230b3ef32c3f261e48226fa4d5440f5408bdd146b28f165a
+deleted: sha256:aa6dcc3b4fb8077849a26a01f99090db9b88d0ead3eaeee1469ae04e8350371c
+deleted: sha256:6dc07c8f3998953144c59378eb69fd063590ae7689edb547f9087a36582c3ad4
+deleted: sha256:b64b60167d3c831a1c4f919e51c35f639f922de306e7ab300c3cc2a3c610b8d3
+deleted: sha256:53fba622c4a45a9e4df6804af0fd41c22916ecd987ee6e3a0eb00e8b626f6b04
+deleted: sha256:1011d624a9a221102af07e5aa438b200b59edcd78ba3e89a1546eb211afea1aa
+deleted: sha256:60d33163bc15a0c34cf7a3c13c6e3bd9a3a7aea4281a6cb8a898c949556d4f81
+deleted: sha256:4b4b507eaab05a411d4c941d1b76f11f2b17dfb2fa41571ac6d61ccab99c7c41
+deleted: sha256:c88e7df924125d35d0e4dd27aa2dae753747af151a5a05d8670371d171f69ee2
+deleted: sha256:119e9500f3aeccedc6f888753abe8e0cbfb25676e6b446915767940ba38ffeb0
+deleted: sha256:98318cd1d980a22dc8931e07b738b825d6e4544ba19bfaea00c4446f2326013c
+deleted: sha256:8243313e71e6308625693fd0674f165b465a901b4b3e0516a2429fa321e775b3
+deleted: sha256:eefca26c59d6ea971f6b9603ab81b1b9d7fce497cafb1cab980a99ede1d36541
+deleted: sha256:3341eee23096a319459313e4e185cad8f7a81af8472327742a9889e63e3121ff
+deleted: sha256:b2841986b75e1809fe842c4ad918eef0b2d3cb82c5908f7bcfcb52b1682629c7
+deleted: sha256:64118de4fd4f6de77ed222b117d84d268462ad4623e6a2bb79eb441673627e2d
+deleted: sha256:da43e81c52b01bcf896cceb4a8a9c9f96ad268e632625ad039a00c5cf591f959
+deleted: sha256:1a9947eeb908c87e7f3f3ce868c188fd9f8415c163662d8be4ec949e5e9f5a35
+deleted: sha256:21faef1ce5b6d0458a70aa7c58a6cc3e719630d9dbde38c59111182d40bf0e76
+deleted: sha256:0ef85f18d60596f9206521eb7290c9c3866854c6ed8426f15311e4f6d75f0443
+deleted: sha256:ce5b67247832261538731f55c1d229fe2ce26f0916cdd7312a8381329a1e02e8
+deleted: sha256:2fbc35dd09d79ed603086f445d351bbd7711688d22c87cce13b8e3c6f4243412
+deleted: sha256:a7387b3b2a6df650802ecfe4695f0204d758ff6267907ae63a1d25cfc070ff0b
+deleted: sha256:392d479d54c59e3b09e0a2d33a488ea03ed676a9bb1a0116f3012ba41014e903
+deleted: sha256:531ed67d20320d333e9d669240288c0913c92d3f3dd32e851401cfa0e76d427e
+deleted: sha256:5230b5fe7c54291616cad1a29b6b5e873480e0aa44591b97768eb302817d3e60
+deleted: sha256:86d355f20e2d2e6f82d94633fe942f11230c1292902a12e181a069f177469cf0
+deleted: sha256:29aed51cf486a41fac69f69f687c6b99b355537e530867668dd6a4c97de8f805
+deleted: sha256:b66837e569074fcd733b2ee7ac2975c3b17238f97c93e901545b3eed911b41d9
+deleted: sha256:50a51acbce10e291ed9c3daeae1636876550b0465fc6da179f5ae085e5de2eb2
+deleted: sha256:39e7b86930ada0fafe72eb6dae4318a49cfb31260eb4db999dfe75f9f24352d4
+deleted: sha256:22cd82705e03257af0c3d9d717c858ebc27fa9fe911453eacb19633dd869cf13
+deleted: sha256:4720e0509713cbf98970b70a5286645e3fcfb45e48a05077bfa8612ae9f622eb
+deleted: sha256:11cedc39e663e7c5d5cb9cc77a461a0d2adc25537b94e6831a6108f09cb2001b
+untagged: node:22-alpine
+untagged: node@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
+
+Total reclaimed space: 6.957GB
+root@vm571donc:~/web/dimeconsultants# 
+root@vm571donc:~/web/dimeconsultants# 
+root@vm571donc:~/web/dimeconsultants# df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        20G   14G  5.7G  70% /
+root@vm571donc:~/web/dimeconsultants# docker build --no-cache -f Dockerfile.prod -t dime-consultants .
+docker compose -f docker-compose.prod.yml up -d --force-recreate
+Sending build context to Docker daemon  1.123MB
+Step 1/13 : FROM node:24-alpine AS build
+24-alpine: Pulling from library/node
+6a0ac1617861: Already exists 
+eea2c8c31119: Pull complete 
+414f813165cf: Pull complete 
+c7fd89fde416: Pull complete 
+Digest: sha256:2bdb65ed1dab192432bc31c95f94155ca5ad7fc1392fb7eb7526ab682fa5bf14
+Status: Downloaded newer image for node:24-alpine
+ ---> 22114f5b4716
+Step 2/13 : WORKDIR /app
+ ---> Running in 17c4cdfa5814
+Removing intermediate container 17c4cdfa5814
+ ---> e5765dd5f02d
+Step 3/13 : COPY package*.json ./
+ ---> ca0b47ca5a36
+Step 4/13 : RUN npm install
+ ---> Running in a7d1e207f413
+npm notice
+npm notice New minor version of npm available! 11.13.0 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+npm error Exit handler never called!
+npm error This is an error with npm itself. Please report this error at:
+npm error   <https://github.com/npm/cli/issues>
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-06-10T14_50_15_799Z-debug-0.log
+The command '/bin/sh -c npm install' returned a non-zero code: 1
+[+] up 1/1
+ ✘ Image dime-consultants Error pull access denied for dime-consultants, repository does not exist or may require 'docker login'... 3.2s
+Error response from daemon: pull access denied for dime-consultants, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
