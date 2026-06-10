@@ -4,6 +4,7 @@ import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import tailwindcss from '@tailwindcss/vite'
 import tsConfigPaths from 'vite-tsconfig-paths'
 import path from 'path'
+import { virtualModulePlugin } from './vite-virtual-modules.js'
 
 export default defineConfig({
   resolve: {
@@ -12,6 +13,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    virtualModulePlugin(),
     tailwindcss(),
     TanStackRouterVite(),
     react(),
