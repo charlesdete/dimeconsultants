@@ -1,0 +1,67 @@
+root@vm571donc:~/web/dimeconsultants# git pull
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 8 (delta 3), reused 8 (delta 3), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 4.71 KiB | 75.00 KiB/s, done.
+From github.com:charlesdete/dimeconsultants
+   58bfdca..b7ca0bf  main       -> origin/main
+Updating 58bfdca..b7ca0bf
+Fast-forward
+ .env.example                                                                          |  30 +++++++
+ .gitignore                                                                            |   6 +-
+ Dockerfile.prod                                                                       |   2 +-
+ .../Pasted-root-vm571donc-web-dimeconsultants-git-pull-Updating-ce_1781101888502.txt  | 196 ++++++++++++++++++++++++++++++++++++++++++
+ docker-compose.prod.yml                                                               |  54 ++++++------
+ 5 files changed, 257 insertions(+), 31 deletions(-)
+ create mode 100644 .env.example
+ create mode 100644 attached_assets/Pasted-root-vm571donc-web-dimeconsultants-git-pull-Updating-ce_1781101888502.txt
+root@vm571donc:~/web/dimeconsultants# docker build -f Dockerfile.prod -t dime-consultants .
+Sending build context to Docker daemon  1.123MB
+Step 1/13 : FROM node:22-alpine AS build
+ ---> dd720352b069
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> 6c05693040e2
+Step 3/13 : COPY package*.json ./
+ ---> Using cache
+ ---> c94742443f03
+Step 4/13 : RUN npm install --frozen-lockfile
+ ---> Running in afa8cdb19c5e
+npm notice
+npm notice New major version of npm available! 10.9.8 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+npm error Exit handler never called!
+npm error This is an error with npm itself. Please report this error at:
+npm error   <https://github.com/npm/cli/issues>
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-06-10T14_35_23_047Z-debug-0.log
+The command '/bin/sh -c npm install --frozen-lockfile' returned a non-zero code: 1
+root@vm571donc:~/web/dimeconsultants# git pull
+Already up to date.
+root@vm571donc:~/web/dimeconsultants# git pull
+Already up to date.
+root@vm571donc:~/web/dimeconsultants# docker build -f Dockerfile.prod -t dime-consultants .
+Sending build context to Docker daemon  1.123MB
+Step 1/13 : FROM node:22-alpine AS build
+ ---> dd720352b069
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> 6c05693040e2
+Step 3/13 : COPY package*.json ./
+ ---> Using cache
+ ---> c94742443f03
+Step 4/13 : RUN npm install --frozen-lockfile
+ ---> Running in 4dae2478a00f
+npm notice
+npm notice New major version of npm available! 10.9.8 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+npm error Exit handler never called!
+npm error This is an error with npm itself. Please report this error at:
+npm error   <https://github.com/npm/cli/issues>
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-06-10T14_39_05_342Z-debug-0.log
+The command '/bin/sh -c npm install --frozen-lockfile' returned a non-zero code: 1
+root@vm571donc:~/web/dimeconsultants# 
