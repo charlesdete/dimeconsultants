@@ -3,6 +3,7 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "#tanstack-router-entry": "./src/entry-client.ts",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && node build-setup.mjs",
