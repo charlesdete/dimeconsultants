@@ -1,0 +1,104 @@
+root@vm571donc:~/web/dimeconsultants# docker build -f Dockerfile.prod -t dime-consultants .
+Sending build context to Docker daemon  1.123MB
+Step 1/13 : FROM node:22-alpine AS build
+ ---> dd720352b069
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> 6c05693040e2
+Step 3/13 : COPY package*.json ./
+ ---> Using cache
+ ---> c94742443f03
+Step 4/13 : RUN npm install --frozen-lockfile
+ ---> Running in afa8cdb19c5e
+npm notice
+npm notice New major version of npm available! 10.9.8 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+npm error Exit handler never called!
+npm error This is an error with npm itself. Please report this error at:
+npm error   <https://github.com/npm/cli/issues>
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-06-10T14_35_23_047Z-debug-0.log
+The command '/bin/sh -c npm install --frozen-lockfile' returned a non-zero code: 1
+root@vm571donc:~/web/dimeconsultants# git pull
+Already up to date.
+root@vm571donc:~/web/dimeconsultants# git pull
+Already up to date.
+root@vm571donc:~/web/dimeconsultants# docker build -f Dockerfile.prod -t dime-consultants .
+Sending build context to Docker daemon  1.123MB
+Step 1/13 : FROM node:22-alpine AS build
+ ---> dd720352b069
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> 6c05693040e2
+Step 3/13 : COPY package*.json ./
+ ---> Using cache
+ ---> c94742443f03
+Step 4/13 : RUN npm install --frozen-lockfile
+ ---> Running in 4dae2478a00f
+npm notice
+npm notice New major version of npm available! 10.9.8 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+npm error Exit handler never called!
+npm error This is an error with npm itself. Please report this error at:
+npm error   <https://github.com/npm/cli/issues>
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-06-10T14_39_05_342Z-debug-0.log
+The command '/bin/sh -c npm install --frozen-lockfile' returned a non-zero code: 1
+root@vm571donc:~/web/dimeconsultants# cat Dockerfile.prod
+git log --oneline -3
+FROM node:22-alpine AS build
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install --frozen-lockfile
+
+COPY . .
+RUN npm run build
+
+FROM node:22-alpine AS prod
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/package.json ./package.json
+
+EXPOSE 3030
+CMD ["node", "dist/server.mjs"]
+b7ca0bf (HEAD -> main, origin/main, origin/HEAD) Update application build process and deployment configuration
+58bfdca Add deployment instructions and update build process for production
+46ae4d2 Remove all TanStack router dependencies and implement a custom client-side router
+root@vm571donc:~/web/dimeconsultants# nano Dockerfile.prod
+root@vm571donc:~/web/dimeconsultants# docker build --no-cache -f Dockerfile.prod -t dime-consultants .
+Sending build context to Docker daemon  1.123MB
+Step 1/13 : FROM node:24-alpine AS build
+24-alpine: Pulling from library/node
+6a0ac1617861: Already exists 
+eea2c8c31119: Already exists 
+414f813165cf: Already exists 
+c7fd89fde416: Already exists 
+Digest: sha256:2bdb65ed1dab192432bc31c95f94155ca5ad7fc1392fb7eb7526ab682fa5bf14
+Status: Downloaded newer image for node:24-alpine
+ ---> 22114f5b4716
+Step 2/13 : WORKDIR /app
+ ---> Running in 25395c70f204
+Removing intermediate container 25395c70f204
+ ---> 6a3beb8bc49f
+Step 3/13 : COPY package*.json ./
+ ---> 73ec7d64f37a
+Step 4/13 : RUN npm install
+ ---> Running in 3d0dccd5b19d
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm notice
+npm notice New minor version of npm available! 11.13.0 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-06-10T14_44_49_450Z-debug-0.log
+The command '/bin/sh -c npm install' returned a non-zero code: 1
+root@vm571donc:~/web/dimeconsultants# docker compose -f docker-compose.prod.yml up -d --force-recreate
+[+] up 1/1
+ ✘ Image dime-consultants Error pull access denied for dime-consultants, repository does not exist or may require 'docker login'... 3.2s
+Error response from daemon: pull access denied for dime-consultants, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+root@vm571donc:~/web/dimeconsultants# 
