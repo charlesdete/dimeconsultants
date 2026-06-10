@@ -3,20 +3,15 @@ version: "3.8"
 
 services:
   app:
-    image: ghcr.io/charlesdete/ai-navigator-frontend:latest # pulled from GHCR by CI/CD
+    image: ghcr.io/charlesdete/ai-navigator-frontend:latest
     container_name: dime-ai-navigator
     ports:
       - "3030:3030"
-    environment:
-      - NODE_ENV=production
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_PORT=${SMTP_PORT}
-      - SMTP_USER=${SMTP_USER}
-      - SMTP_PASS=${SMTP_PASS}
-      - RECIPIENT_EMAIL=${RECIPIENT_EMAIL}
+    env_file:
+      - .env
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:3030/health || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3030 > /dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -28,23 +23,6 @@ services:
         max-file: "3"
     networks:
       - dime-network
-
-  nginx:
-    image: nginx:alpine
-    container_name: dime-nginx
-    ports:
-      - "8080:80"
-      - "8443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - /etc/letsencrypt:/etc/letsencrypt:ro # SSL certs from certbot
-      - /var/www/certbot:/var/www/certbot:ro # ACME challenge
-    depends_on:
-      - app
-    restart: unless-stopped
-    networks:
-      - dime-network
-
 networks:
   dime-network:
     driver: bridge
