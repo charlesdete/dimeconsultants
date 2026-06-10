@@ -1,0 +1,193 @@
+root@vm571donc:~/web/dimeconsultants# curl http://localhost:3030
+docker logs dime-ai-navigator
+<!DOCTYPE html><html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Files within dist&#47;</title> <style>body { margin: 0; padding: 30px; background: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; -webkit-font-smoothing: antialiased;}main { max-width: 920px;}header { display: flex; justify-content: space-between; flex-wrap: wrap;}h1 { font-size: 18px; font-weight: 500; margin-top: 0; color: #000;}header h1 a { font-size: 18px; font-weight: 500; margin-top: 0; color: #000;}h1 i { font-style: normal;}ul { margin: 0 0 0 -2px; padding: 20px 0 0 0;}ul li { list-style: none; font-size: 14px; display: flex; justify-content: space-between;}a { text-decoration: none;}ul a { color: #000; padding: 10px 5px; margin: 0 -5px; white-space: nowrap; overflow: hidden; display: block; width: 100%; text-overflow: ellipsis;}header a { color: #0076FF; font-size: 11px; font-weight: 400; display: inline-block; line-height: 20px;}svg { height: 13px; vertical-align: text-bottom;}ul a::before { display: inline-block; vertical-align: middle; margin-right: 10px; width: 24px; text-align: center; line-height: 12px;}ul a.file::before { content: url("data:image/svg+xml;utf8,<svg width='15' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 8C8.34 8 7 6.66 7 5V1H3c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h9c1.1 0 2-.9 2-2V8h-4zM8 5c0 1.1.9 2 2 2h3.59L8 1.41V5zM3 0h5l7 7v9c0 1.66-1.34 3-3 3H3c-1.66 0-3-1.34-3-3V3c0-1.66 1.34-3 3-3z' fill='black'/></svg>");}ul a:hover { text-decoration: underline;}ul a.folder::before { content: url("data:image/svg+xml;utf8,<svg width='20' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M18.784 3.87a1.565 1.565 0 0 0-.565-.356V2.426c0-.648-.523-1.171-1.15-1.171H8.996L7.908.25A.89.89 0 0 0 7.302 0H2.094C1.445 0 .944.523.944 1.171v2.3c-.21.085-.398.21-.565.356a1.348 1.348 0 0 0-.377 1.004l.398 9.83C.42 15.393 1.048 16 1.8 16h15.583c.753 0 1.36-.586 1.4-1.339l.398-9.83c.021-.313-.125-.69-.397-.962zM1.843 3.41V1.191c0-.146.104-.272.25-.272H7.26l1.234 1.088c.083.042.167.104.293.104h8.282c.125 0 .25.126.25.272V3.41H1.844zm15.54 11.712H1.78a.47.47 0 0 1-.481-.46l-.397-9.83c0-.147.041-.252.125-.356a.504.504 0 0 1 .377-.147H17.78c.125 0 .272.063.377.147.083.083.125.209.125.334l-.418 9.83c-.021.272-.23.482-.481.482z' fill='black'/></svg>");}ul a.lambda::before { content: url("data:image/svg+xml; utf8,<svg width='15' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3.5 14.4354H5.31622L7.30541 9.81311H7.43514L8.65315 13.0797C9.05676 14.1643 9.55405 14.5 10.7 14.5C11.0171 14.5 11.291 14.4677 11.5 14.4032V13.1572C11.3847 13.1766 11.2622 13.2024 11.1541 13.2024C10.6351 13.2024 10.3829 13.0281 10.1595 12.4664L8.02613 7.07586C7.21171 5.01646 6.54865 4.5 5.11441 4.5C4.83333 4.5 4.62432 4.53228 4.37207 4.59038V5.83635C4.56667 5.81052 4.66036 5.79761 4.77568 5.79761C5.64775 5.79761 5.9 6.0042 6.4045 7.19852L6.64234 7.77954L3.5 14.4354Z' fill='black'/><rect x='0.5' y='0.5' width='14' height='18' rx='2.5' stroke='black'/></svg>");}ul a.file.gif::before,ul a.file.jpg::before,ul a.file.png::before,ul a.file.svg::before { content: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='black' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'><rect x='6' y='6' width='68' height='68' rx='5' ry='5'/><circle cx='24' cy='24' r='8'/><path d='M73 49L59 34 37 52m16 20L27 42 7 58'/></svg>");}::selection { background-color: #79FFE1; color: #000;}::-moz-selection { background-color: #79FFE1; color: #000;}@media (min-width: 768px) { ul {display: flex;flex-wrap: wrap; } ul li {width: 230px;padding-right: 20px; }}@media (min-width: 992px) { body {padding: 45px; } h1, header h1 a {font-size: 15px; } ul li {font-size: 13px;box-sizing: border-box;justify-content: flex-start; }}</style> </head> <body> <main> <header> <h1> <i>Index of&nbsp;</i>  <a href="/">dist&#47;</a>  </h1> </header> <ul id="files">  <li> <a href="&#47;client&#47;" title="client&#47;" class="folder ">client&#47;</a> </li>  <li> <a href="&#47;server&#47;" title="server&#47;" class="folder ">server&#47;</a> </li>  </ul></main> </body></html> INFO  Accepting connections at http://localhost:3030
+ HTTP  6/10/2026 2:30:02 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:30:02 PM 127.0.0.1 Returned 200 in 187 ms
+ HTTP  6/10/2026 2:30:29 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:30:29 PM 172.29.0.1 Returned 200 in 8 ms
+ HTTP  6/10/2026 2:30:32 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:30:32 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:30:32 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:30:32 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:30:32 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:30:32 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:30:33 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:30:33 PM 127.0.0.1 Returned 200 in 10 ms
+ HTTP  6/10/2026 2:30:48 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:30:48 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:30:48 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:30:48 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:31:03 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:31:03 PM 127.0.0.1 Returned 200 in 9 ms
+ HTTP  6/10/2026 2:31:33 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:31:33 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:31:43 PM 172.29.0.1 GET /robots.txt
+ HTTP  6/10/2026 2:31:43 PM 172.29.0.1 Returned 404 in 4 ms
+ HTTP  6/10/2026 2:31:48 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:31:48 PM 172.29.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:32:02 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:32:02 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:32:02 PM 172.29.0.1 GET /server/
+ HTTP  6/10/2026 2:32:02 PM 172.29.0.1 Returned 200 in 6 ms
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 GET /client/
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:32:03 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:32:03 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 GET /server/index.js
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 Returned 200 in 8 ms
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 GET /server/.vite/
+ HTTP  6/10/2026 2:32:03 PM 172.29.0.1 Returned 200 in 5 ms
+ HTTP  6/10/2026 2:32:04 PM 172.29.0.1 GET /server/assets/
+ HTTP  6/10/2026 2:32:04 PM 172.29.0.1 Returned 200 in 10 ms
+ HTTP  6/10/2026 2:32:04 PM 172.29.0.1 GET /client/assets/
+ HTTP  6/10/2026 2:32:04 PM 172.29.0.1 Returned 200 in 12 ms
+ HTTP  6/10/2026 2:32:04 PM 172.29.0.1 GET /client/.assetsignore
+ HTTP  6/10/2026 2:32:04 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:32:05 PM 172.29.0.1 GET /server/assets/worker-entry-DuyILgzN.js
+ HTTP  6/10/2026 2:32:05 PM 172.29.0.1 Returned 200 in 21 ms
+ HTTP  6/10/2026 2:32:29 PM 172.29.0.1 GET /server/
+ HTTP  6/10/2026 2:32:29 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:32:33 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:32:33 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:33:03 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:33:03 PM 127.0.0.1 Returned 200 in 10 ms
+ HTTP  6/10/2026 2:33:33 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:33:33 PM 127.0.0.1 Returned 200 in 18 ms
+ HTTP  6/10/2026 2:34:04 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:34:04 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:34:34 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:34:34 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:35:04 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:35:04 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:35:11 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:35:11 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:35:34 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:35:34 PM 127.0.0.1 Returned 200 in 12 ms
+ HTTP  6/10/2026 2:36:04 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:36:04 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:36:35 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:36:35 PM 127.0.0.1 Returned 200 in 9 ms
+ HTTP  6/10/2026 2:37:05 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:37:05 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:37:35 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:37:35 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:37:53 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:37:53 PM 172.29.0.1 Returned 200 in 19 ms
+ HTTP  6/10/2026 2:37:54 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:37:54 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:38:01 PM 172.29.0.1 GET /server/
+ HTTP  6/10/2026 2:38:01 PM 172.29.0.1 Returned 200 in 8 ms
+ HTTP  6/10/2026 2:38:05 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:38:05 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:38:05 PM 172.29.0.1 GET /client/assets/
+ HTTP  6/10/2026 2:38:05 PM 172.29.0.1 Returned 200 in 7 ms
+ HTTP  6/10/2026 2:38:05 PM 172.29.0.1 GET /server/
+ HTTP  6/10/2026 2:38:05 PM 172.29.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:38:35 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:38:35 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:39:06 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:39:06 PM 127.0.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:39:36 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:39:36 PM 127.0.0.1 Returned 200 in 26 ms
+ HTTP  6/10/2026 2:40:06 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:40:06 PM 127.0.0.1 Returned 200 in 32 ms
+ HTTP  6/10/2026 2:40:36 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:40:36 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:41:06 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:41:06 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:41:36 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:41:36 PM 127.0.0.1 Returned 200 in 14 ms
+ HTTP  6/10/2026 2:42:07 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:42:07 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:42:37 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:42:37 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:43:06 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:43:06 PM 172.29.0.1 Returned 200 in 5 ms
+ HTTP  6/10/2026 2:43:07 PM 172.29.0.1 GET /favicon.ico
+ HTTP  6/10/2026 2:43:07 PM 172.29.0.1 Returned 404 in 7 ms
+ HTTP  6/10/2026 2:43:07 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:43:07 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:43:37 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:43:37 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:44:07 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:44:07 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:44:37 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:44:37 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:45:07 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:45:07 PM 172.29.0.1 Returned 200 in 94 ms
+ HTTP  6/10/2026 2:45:08 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:45:08 PM 127.0.0.1 Returned 200 in 13 ms
+ HTTP  6/10/2026 2:45:10 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:45:10 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:45:38 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:45:38 PM 127.0.0.1 Returned 200 in 9 ms
+ HTTP  6/10/2026 2:45:56 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:45:56 PM 172.29.0.1 Returned 200 in 21 ms
+ HTTP  6/10/2026 2:46:02 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:46:02 PM 172.29.0.1 Returned 200 in 9 ms
+ HTTP  6/10/2026 2:46:06 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:46:06 PM 172.29.0.1 Returned 200 in 7 ms
+ HTTP  6/10/2026 2:46:08 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:46:08 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:46:20 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:46:20 PM 172.29.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:46:21 PM 172.29.0.1 GET /server/
+ HTTP  6/10/2026 2:46:21 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:46:21 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:46:21 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:46:22 PM 172.29.0.1 GET /client/
+ HTTP  6/10/2026 2:46:22 PM 172.29.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:46:22 PM 172.29.0.1 GET /server/index.js
+ HTTP  6/10/2026 2:46:22 PM 172.29.0.1 Returned 200 in 15 ms
+ HTTP  6/10/2026 2:46:23 PM 172.29.0.1 GET /server/.vite/
+ HTTP  6/10/2026 2:46:23 PM 172.29.0.1 Returned 200 in 5 ms
+ HTTP  6/10/2026 2:46:23 PM 172.29.0.1 GET /server/assets/
+ HTTP  6/10/2026 2:46:23 PM 172.29.0.1 Returned 200 in 30 ms
+ HTTP  6/10/2026 2:46:23 PM 172.29.0.1 GET /client/assets/
+ HTTP  6/10/2026 2:46:23 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:46:24 PM 172.29.0.1 GET /client/.assetsignore
+ HTTP  6/10/2026 2:46:24 PM 172.29.0.1 Returned 200 in 7 ms
+ HTTP  6/10/2026 2:46:24 PM 172.29.0.1 GET /server/assets/worker-entry-DuyILgzN.js
+ HTTP  6/10/2026 2:46:24 PM 172.29.0.1 Returned 200 in 4 ms
+ HTTP  6/10/2026 2:46:38 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:46:38 PM 127.0.0.1 Returned 200 in 11 ms
+ HTTP  6/10/2026 2:47:09 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:47:09 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  6/10/2026 2:47:39 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:47:39 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  6/10/2026 2:48:11 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:48:11 PM 127.0.0.1 Returned 200 in 5 ms
+ HTTP  6/10/2026 2:48:29 PM 172.29.0.1 GET /wp-admin/install.php?step=1
+ HTTP  6/10/2026 2:48:29 PM 172.29.0.1 Returned 404 in 19 ms
+ HTTP  6/10/2026 2:48:41 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:48:41 PM 127.0.0.1 Returned 200 in 15 ms
+ HTTP  6/10/2026 2:49:11 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:49:11 PM 127.0.0.1 Returned 200 in 22 ms
+ HTTP  6/10/2026 2:49:42 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:49:42 PM 127.0.0.1 Returned 200 in 6 ms
+ HTTP  6/10/2026 2:50:08 PM 172.29.0.1 GET /client/.assetsignore
+ HTTP  6/10/2026 2:50:08 PM 172.29.0.1 Returned 200 in 133 ms
+ HTTP  6/10/2026 2:50:12 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:50:12 PM 127.0.0.1 Returned 200 in 10 ms
+ HTTP  6/10/2026 2:50:42 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:50:42 PM 127.0.0.1 Returned 200 in 35 ms
+ HTTP  6/10/2026 2:51:12 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:51:12 PM 127.0.0.1 Returned 200 in 10 ms
+ HTTP  6/10/2026 2:51:43 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:51:43 PM 127.0.0.1 Returned 200 in 15 ms
+ HTTP  6/10/2026 2:52:13 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:52:13 PM 127.0.0.1 Returned 200 in 8 ms
+ HTTP  6/10/2026 2:52:43 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:52:43 PM 127.0.0.1 Returned 200 in 7 ms
+ HTTP  6/10/2026 2:53:13 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:53:13 PM 127.0.0.1 Returned 200 in 12 ms
+ HTTP  6/10/2026 2:53:43 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:53:43 PM 127.0.0.1 Returned 200 in 20 ms
+ HTTP  6/10/2026 2:54:13 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:54:13 PM 127.0.0.1 Returned 200 in 14 ms
+ HTTP  6/10/2026 2:54:44 PM 127.0.0.1 GET /
+ HTTP  6/10/2026 2:54:44 PM 127.0.0.1 Returned 200 in 23 ms
+ HTTP  6/10/2026 2:54:45 PM 172.29.0.1 GET /
+ HTTP  6/10/2026 2:54:45 PM 172.29.0.1 Returned 200 in 6 ms
