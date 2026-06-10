@@ -18,6 +18,7 @@ import { Route as InsightsRouteImport } from "./routes/insights";
 import { Route as ContactRouteImport } from "./routes/contact";
 import { Route as AboutRouteImport } from "./routes/about";
 import { Route as IndexRouteImport } from "./routes/index";
+import { Route as ApiSendEmailRouteImport } from "./routes/api/send-email";
 
 const UseCasesRoute = UseCasesRouteImport.update({
   id: "/use-cases",
@@ -64,6 +65,11 @@ const IndexRoute = IndexRouteImport.update({
   path: "/",
   getParentRoute: () => rootRouteImport,
 } as any);
+const ApiSendEmailRoute = ApiSendEmailRouteImport.update({
+  id: "/api/send-email",
+  path: "/api/send-email",
+  getParentRoute: () => rootRouteImport,
+} as any);
 
 export interface FileRoutesByFullPath {
   "/": typeof IndexRoute;
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   "/services": typeof ServicesRoute;
   "/success-stories": typeof SuccessStoriesRoute;
   "/use-cases": typeof UseCasesRoute;
+  "/api/send-email": typeof ApiSendEmailRoute;
 }
 export interface FileRoutesByTo {
   "/": typeof IndexRoute;
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   "/services": typeof ServicesRoute;
   "/success-stories": typeof SuccessStoriesRoute;
   "/use-cases": typeof UseCasesRoute;
+  "/api/send-email": typeof ApiSendEmailRoute;
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport;
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   "/services": typeof ServicesRoute;
   "/success-stories": typeof SuccessStoriesRoute;
   "/use-cases": typeof UseCasesRoute;
+  "/api/send-email": typeof ApiSendEmailRoute;
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
@@ -110,7 +119,8 @@ export interface FileRouteTypes {
     | "/scanner"
     | "/services"
     | "/success-stories"
-    | "/use-cases";
+    | "/use-cases"
+    | "/api/send-email";
   fileRoutesByTo: FileRoutesByTo;
   to:
     | "/"
@@ -121,7 +131,8 @@ export interface FileRouteTypes {
     | "/scanner"
     | "/services"
     | "/success-stories"
-    | "/use-cases";
+    | "/use-cases"
+    | "/api/send-email";
   id:
     | "__root__"
     | "/"
@@ -132,7 +143,8 @@ export interface FileRouteTypes {
     | "/scanner"
     | "/services"
     | "/success-stories"
-    | "/use-cases";
+    | "/use-cases"
+    | "/api/send-email";
   fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute;
   SuccessStoriesRoute: typeof SuccessStoriesRoute;
   UseCasesRoute: typeof UseCasesRoute;
+  ApiSendEmailRoute: typeof ApiSendEmailRoute;
 }
 
 declare module "@tanstack/react-router" {
@@ -212,6 +225,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof IndexRouteImport;
       parentRoute: typeof rootRouteImport;
     };
+    "/api/send-email": {
+      id: "/api/send-email";
+      path: "/api/send-email";
+      fullPath: "/api/send-email";
+      preLoaderRoute: typeof ApiSendEmailRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
   }
 }
 
@@ -225,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SuccessStoriesRoute: SuccessStoriesRoute,
   UseCasesRoute: UseCasesRoute,
+  ApiSendEmailRoute: ApiSendEmailRoute,
 };
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
