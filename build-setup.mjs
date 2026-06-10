@@ -140,25 +140,4 @@ if (!fs.existsSync(distPath)) {
 
 fs.writeFileSync(path.join(distPath, 'server.mjs'), serverCode);
 console.log('✓ Created dist/server.mjs');
-
-// Create index.html in client folder for SPA
-const clientPath = path.join(distPath, 'client');
-if (!fs.existsSync(clientPath)) {
-  fs.mkdirSync(clientPath, { recursive: true });
-}
-
-const indexHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dime Consultants</title>
-</head>
-<body>
-    <div id="root"></div>
-    <script type="module" src="/assets/client/index.js"></script>
-</body>
-</html>`;
-
-fs.writeFileSync(path.join(clientPath, 'index.html'), indexHtml);
-console.log('✓ Created dist/client/index.html');
+console.log('✓ Build complete — run: node dist/server.mjs');
