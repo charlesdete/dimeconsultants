@@ -48,7 +48,11 @@ app.post('/api/send-email', async (req, res) => {
     const smtpPort = parseInt(process.env.SMTP_PORT || '587');
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
-    const recipientEmail = process.env.RECIPIENT_EMAIL || 'hello@dimeconsultants.co.ke';
+    
+    // Support both single recipient and comma-separated list
+    let recipientEmail = process.env.RECIPIENT_EMAIL || 'hello@dimeconsultants.co.ke';
+    // Parse comma-separated list and trim whitespace
+    const recipients = recipientEmail.split(',').map(email => email.trim()).filter(email => email);
 
     if (!smtpHost || !smtpUser || !smtpPass) {
       console.error('SMTP configuration missing');
@@ -77,10 +81,10 @@ app.post('/api/send-email', async (req, res) => {
       return text.replace(/[&<>"']/g, (m) => map[m]);
     }
 
-    // Email to Dime Consultants
+    // Email to Dime Consultants (support multiple recipients)
     const mailOptions = {
       from: smtpUser,
-      to: recipientEmail,
+      to: recipients.join(', '),
       subject: \`New Contact Form Submission from \${name}\`,
       html: \`
         <h2>New Contact Form Submission</h2>
