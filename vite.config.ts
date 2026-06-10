@@ -4,18 +4,15 @@ import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import tailwindcss from '@tailwindcss/vite'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     TanStackRouterVite(),
     react(),
-    tailwindcss(),
     tsConfigPaths(),
   ],
   build: {
-    outDir: 'dist',
-  },
-  server: {
-    port: 5173,
+    outDir: 'dist/client',
+    emptyOutDir: false,
   },
 })

@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node build-setup.js && rm -f dist/server/*.gen.js",
+    "build": "vite build && node build-setup.mjs",
     "build:dev": "vite build --mode development",
+    "start": "node dist/server.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "vitest run",
-   "prod": "serve -s dist -l 3030"
+    "test": "vitest run"
 
   },
   "dependencies": {
