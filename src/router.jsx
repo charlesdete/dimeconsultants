@@ -1,9 +1,69 @@
-import { createRouter, useRouter } from "@tanstack/react-router";
-import { routeTree } from "./routeTree.gen";
+import { createContext, useContext, useState, useEffect, useCallback } from "react";
 
-function DefaultErrorComponent({ error, reset }) {
-  const router = useRouter();
-  return <div className="center-screen"><div className="message-panel"><div className="error-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" className="error-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg></div><h1 className="message-title">Something went wrong</h1><p className="message-copy">An unexpected error occurred. Please try again.</p>{import.meta.env.DEV && error.message && <pre className="error-details">{error.message}</pre>}<div className="message-actions"><button onClick={() => { router.invalidate(); reset(); }} className="message-button">Try again</button><a href="/" className="message-button secondary">Go home</a></div></div></div>;
+const RouterContext = createContext(null);
+
+export function Router({ children }) {
+  const [path, setPath] = useState(() => window.location.pathname);
+
+  useEffect(() => {
+    const onPop = () => setPath(window.location.pathname);
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  const navigate = useCallback((to) => {
+    window.history.pushState(null, "", to);
+    setPath(to);
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <RouterContext.Provider value={{ path, navigate }}>
+      {children}
+    </RouterContext.Provider>
+  );
 }
 
-export const getRouter = () => createRouter({ routeTree, context: {}, scrollRestoration: true, defaultPreloadStaleTime: 0, defaultErrorComponent: DefaultErrorComponent });
+export function useRouter() {
+  return useContext(RouterContext);
+}
+
+export function useNavigate() {
+  return useContext(RouterContext).navigate;
+}
+
+export function Link({ to, className, children, onClick, ...props }) {
+  const { navigate } = useContext(RouterContext);
+  const handleClick = (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    onClick?.();
+    navigate(to);
+  };
+  return (
+    <a href={to} className={className} onClick={handleClick} {...props}>
+      {children}
+    </a>
+  );
+}
+
+export function ActiveLink({ to, className, activeClassName, children, onClick, ...props }) {
+  const { path, navigate } = useContext(RouterContext);
+  const isActive = path === to;
+  const handleClick = (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    onClick?.();
+    navigate(to);
+  };
+  return (
+    <a
+      href={to}
+      className={isActive ? `${className} ${activeClassName}` : className}
+      onClick={handleClick}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+}

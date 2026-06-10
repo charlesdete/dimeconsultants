@@ -1,25 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { Section, Eyebrow } from "@/components/Section";
 import { Mail, MapPin, Phone, Calendar, Send } from "lucide-react";
-import { useState } from "react";
 import { sendContactEmail } from "@/lib/send-email";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact & Book a Discovery Call | Dime Consultants" },
-      {
-        name: "description",
-        content:
-          "Book a discovery call with Dime Consultants. Visit us at Two Rivers Mall, Nairobi or chat with us on WhatsApp.",
-      },
-    ],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export function ContactPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -39,7 +24,6 @@ function ContactPage() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
     try {
       await sendContactEmail(formData);
       setSent(true);
@@ -95,6 +79,7 @@ function ContactPage() {
               </div>
             </div>
           </div>
+
           <form onSubmit={handleSubmit} className="contact-form">
             <h2>Send us a message</h2>
             <div className="contact-form-fields">

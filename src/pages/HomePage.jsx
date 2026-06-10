@@ -1,19 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
-  ArrowRight,
-  Brain,
-  Cog,
-  Shield,
-  Sparkles,
-  TrendingUp,
-  Users,
-  Zap,
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
+  ArrowRight, Brain, Cog, Shield, Sparkles,
+  TrendingUp, Users, Zap, CheckCircle2, ChevronLeft, ChevronRight,
 } from "lucide-react";
+import { Link } from "@/router";
 import { PageLayout } from "@/components/PageLayout";
 import { NeuralBackground } from "@/components/NeuralBackground";
 import { Section, Eyebrow } from "@/components/Section";
@@ -29,56 +20,21 @@ const partners = [
   { name: "Dime Credit", src: dimecredit },
 ];
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Dime Consultants — Driving Global Efficiency with AI" },
-      {
-        name: "description",
-        content:
-          "Nairobi-based AI & Business Process Reengineering consultancy. Forge your AI-ready workforce with measurable ROI across all industries.",
-      },
-      { property: "og:title", content: "Dime Consultants — Driving Global Efficiency with AI" },
-      {
-        property: "og:description",
-        content: "AI workforce training and BPR consulting from Nairobi to the world.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-  }),
-  component: HomePage,
-});
-
 const stats = [
   { v: "3000+", l: "Professionals trained" },
   { v: "40+", l: "Organisations served" },
   { v: "90 days", l: "From training to ROI" },
   { v: "12", l: "Industries covered" },
 ];
+
 const services = [
-  {
-    icon: Brain,
-    t: "AI Workforce Training",
-    d: "Custom-built curricula that turn teams into confident operators of modern AI tools.",
-  },
-  {
-    icon: Cog,
-    t: "Business Process Reengineering",
-    d: "Redesign workflows around intelligent automation for compounding efficiency.",
-  },
-  {
-    icon: Shield,
-    t: "AI Governance & Compliance",
-    d: "Frameworks aligned with global standards and East African regulatory context.",
-  },
-  {
-    icon: TrendingUp,
-    t: "AI Strategy for Leaders",
-    d: "Executive enablement to set vision, measure ROI and lead transformation.",
-  },
+  { icon: Brain, t: "AI Workforce Training", d: "Custom-built curricula that turn teams into confident operators of modern AI tools." },
+  { icon: Cog, t: "Business Process Reengineering", d: "Redesign workflows around intelligent automation for compounding efficiency." },
+  { icon: Shield, t: "AI Governance & Compliance", d: "Frameworks aligned with global standards and East African regulatory context." },
+  { icon: TrendingUp, t: "AI Strategy for Leaders", d: "Executive enablement to set vision, measure ROI and lead transformation." },
 ];
 
-function HomePage() {
+export function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const logosPerView = 4;
   const totalSlides = Math.ceil(partners.length / logosPerView);
@@ -90,13 +46,8 @@ function HomePage() {
     return () => clearInterval(interval);
   }, [totalSlides]);
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  };
+  const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  const handleNext = () => setCurrentIndex((prev) => (prev + 1) % totalSlides);
 
   const visiblePartners = partners.slice(
     currentIndex * logosPerView,
@@ -151,6 +102,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
       <Section>
         <div className="home-section-heading">
           <Eyebrow>What we do</Eyebrow>
@@ -168,9 +120,7 @@ function HomePage() {
               viewport={{ once: true }}
               className="card home-service-card"
             >
-              <div className="icon-box">
-                <s.icon size={20} />
-              </div>
+              <div className="icon-box"><s.icon size={20} /></div>
               <h3 className="home-card-title">{s.t}</h3>
               <p className="home-card-copy">{s.d}</p>
               <div className="home-service-glow" />
@@ -178,6 +128,7 @@ function HomePage() {
           ))}
         </div>
       </Section>
+
       <section className="split-band">
         <div className="band-grid two">
           <div>
@@ -188,17 +139,8 @@ function HomePage() {
               automation. Customised to your sector, your tools and your KPIs.
             </p>
             <ul className="programme-list">
-              {[
-                "AI Foundations",
-                "Agents & Automation",
-                "Practical Tool Mastery",
-                "Ethics & Compliance",
-                "AI Strategy for Leaders",
-              ].map((m) => (
-                <li key={m}>
-                  <CheckCircle2 size={18} className="cyan-icon" />
-                  {m}
-                </li>
+              {["AI Foundations", "Agents & Automation", "Practical Tool Mastery", "Ethics & Compliance", "AI Strategy for Leaders"].map((m) => (
+                <li key={m}><CheckCircle2 size={18} className="cyan-icon" />{m}</li>
               ))}
             </ul>
             <Link to="/programme" className="text-link programme-link">
@@ -225,6 +167,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
       <Section>
         <div className="logo-heading">
           <Eyebrow>Trusted across industries</Eyebrow>
@@ -236,11 +179,7 @@ function HomePage() {
               className="logo-grid carousel-scroll"
               initial={{ x: 0 }}
               animate={{ x: "-100%" }}
-              transition={{
-                duration: 30,
-                repeat: Infinity,
-                ease: "linear",
-              }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             >
               {[...visiblePartners, ...visiblePartners].map((p, idx) => (
                 <motion.div key={`${p.name}-${idx}`} className="logo-cell" whileHover={{ y: -4 }}>
@@ -261,6 +200,7 @@ function HomePage() {
           ))}
         </div>
       </Section>
+
       <section className="home-cta">
         <div className="cta-grid-layer grid-bg" />
         <div className="home-cta-content">
