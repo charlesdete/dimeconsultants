@@ -30,5 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.env*
-package.json
+.env
+.env.local
+.env.production
+.env.docker

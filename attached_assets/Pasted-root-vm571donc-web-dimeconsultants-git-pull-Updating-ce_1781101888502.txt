@@ -1,0 +1,196 @@
+root@vm571donc:~/web/dimeconsultants# git pull
+Updating cecd27e..46ae4d2
+Fast-forward
+ .replit                                           |  35 +++++++++++
+ index.html                                        |   2 +-
+ package.json                                      |  53 +----------------
+ src/App.jsx                                       |  29 +++++++++
+ src/App/test.tsx                                  |   7 ---
+ src/components/SiteFooter.jsx                     |  64 ++++----------------
+ src/components/SiteHeader.jsx                     |  27 +++++++--
+ src/entry-client.ts                               |   3 -
+ src/entry.jsx                                     |  13 ++++
+ src/entry.tsx                                     |  13 ----
+ src/pages/AboutPage.jsx                           |  69 ++++++++++++++++++++++
+ src/{routes/contact.jsx => pages/ContactPage.jsx} |  21 +------
+ src/{routes/index.jsx => pages/HomePage.jsx}      |  98 ++++++------------------------
+ src/pages/InsightsPage.jsx                        |  73 +++++++++++++++++++++++
+ src/pages/NotFoundPage.jsx                        |  19 ++++++
+ src/pages/ProgrammePage.jsx                       |  88 +++++++++++++++++++++++++++
+ src/pages/ScannerPage.jsx                         |  87 +++++++++++++++++++++++++++
+ src/pages/ServicesPage.jsx                        |  48 +++++++++++++++
+ src/pages/SuccessStoriesPage.jsx                  |  57 ++++++++++++++++++
+ src/pages/UseCasesPage.jsx                        |  35 +++++++++++
+ src/routeTree.gen.ts                              | 252 ------------------------------------------------------------------------------
+ src/router.jsx                                    |  72 +++++++++++++++++++++--
+ src/routes/__root.jsx                             |  14 -----
+ src/routes/about.jsx                              |  10 ----
+ src/routes/api/send-email.ts                      | 104 --------------------------------
+ src/routes/insights.jsx                           |   8 ---
+ src/routes/programme.jsx                          |   9 ---
+ src/routes/scanner.jsx                            |   8 ---
+ src/routes/services.jsx                           |   7 ---
+ src/routes/success-stories.jsx                    |   7 ---
+ src/routes/use-cases.jsx                          |   7 ---
+ src/tanstack-router-entry.ts                      |   3 -
+ src/tanstack-start-injected-head-scripts.ts       |   2 -
+ src/tanstack-start-manifest.ts                    |   4 --
+ tsr.config.json                                   |   6 --
+ vite.config.ts                                    |  49 ++++-----------
+ 36 files changed, 691 insertions(+), 712 deletions(-)
+ create mode 100644 .replit
+ create mode 100644 src/App.jsx
+ delete mode 100644 src/App/test.tsx
+ delete mode 100644 src/entry-client.ts
+ create mode 100644 src/entry.jsx
+ delete mode 100644 src/entry.tsx
+ create mode 100644 src/pages/AboutPage.jsx
+ rename src/{routes/contact.jsx => pages/ContactPage.jsx} (90%)
+ rename src/{routes/index.jsx => pages/HomePage.jsx} (76%)
+ create mode 100644 src/pages/InsightsPage.jsx
+ create mode 100644 src/pages/NotFoundPage.jsx
+ create mode 100644 src/pages/ProgrammePage.jsx
+ create mode 100644 src/pages/ScannerPage.jsx
+ create mode 100644 src/pages/ServicesPage.jsx
+ create mode 100644 src/pages/SuccessStoriesPage.jsx
+ create mode 100644 src/pages/UseCasesPage.jsx
+ delete mode 100644 src/routeTree.gen.ts
+ delete mode 100644 src/routes/__root.jsx
+ delete mode 100644 src/routes/about.jsx
+ delete mode 100644 src/routes/api/send-email.ts
+ delete mode 100644 src/routes/insights.jsx
+ delete mode 100644 src/routes/programme.jsx
+ delete mode 100644 src/routes/scanner.jsx
+ delete mode 100644 src/routes/services.jsx
+ delete mode 100644 src/routes/success-stories.jsx
+ delete mode 100644 src/routes/use-cases.jsx
+ delete mode 100644 src/tanstack-router-entry.ts
+ delete mode 100644 src/tanstack-start-injected-head-scripts.ts
+ delete mode 100644 src/tanstack-start-manifest.ts
+ delete mode 100644 tsr.config.json
+root@vm571donc:~/web/dimeconsultants# docker compose -f docker-compose.prod.yml up -d --build
+WARN[0000] /root/web/dimeconsultants/docker-compose.prod.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] up 2/2
+ ✔ Network dimeconsultants_dime-network Created                                                                                     0.3s
+ ✔ Container dime-ai-navigator          Started                                                                                     1.8s
+root@vm571donc:~/web/dimeconsultants# git pull
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 8 (delta 5), reused 8 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 11.72 KiB | 800.00 KiB/s, done.
+From github.com:charlesdete/dimeconsultants
+   46ae4d2..58bfdca  main       -> origin/main
+Updating 46ae4d2..58bfdca
+Fast-forward
+ DEPLOY.md         |  177 +++++
+ Dockerfile.prod   |   34 +-
+ build-setup.mjs   |   23 +-
+ package-lock.json | 4682 +++++++++++++++++++++++--------------------------------------------------------------------------------------
+ package.json      |    2 +
+ vite.config.ts    |    4 +
+ 6 files changed, 1162 insertions(+), 3760 deletions(-)
+ create mode 100644 DEPLOY.md
+root@vm571donc:~/web/dimeconsultants# ls
+DEPLOY.md                DOCUMENTATION_INDEX.md  QUICK_START_VPS.md       docker-compose.dev.yml   package-lock.json  tsconfig.json
+DEPLOYMENT_CHECKLIST.md  Dockerfile              VPS_DEPLOYMENT_SETUP.md  docker-compose.prod.yml  package.json       vite.config.ts
+DEPLOYMENT_SUMMARY.md    Dockerfile.dev          build-setup.mjs          docker-compose.yml       queryex            wrangler.jsonc
+DOCKER_QUICK_START.md    Dockerfile.prod         bun.lockb                eslint.config.js         requirements.txt
+DOCKER_REFERENCE.md      EMAIL_SETUP.md          bunfig.toml              index.html               src
+DOCKER_SETUP.md          MIGRATION_SUMMARY.md    components.json          nginx.conf               start
+DOCKER_VPS_SETUP.md      Makefile                dist                     node_modules             test-email.js
+root@vm571donc:~/web/dimeconsultants# ls -a
+.              .prettierignore          DOCKER_SETUP.md         QUICK_START_VPS.md       docker-compose.yml  src
+..             .prettierrc              DOCKER_VPS_SETUP.md     VPS_DEPLOYMENT_SETUP.md  eslint.config.js    start
+.dockerignore  .replit                  DOCUMENTATION_INDEX.md  build-setup.mjs          index.html          test-email.js
+.env           .wrangler                Dockerfile              bun.lockb                nginx.conf          tsconfig.json
+.env.docker    DEPLOY.md                Dockerfile.dev          bunfig.toml              node_modules        vite.config.ts
+.env.pub       DEPLOYMENT_CHECKLIST.md  Dockerfile.prod         components.json          package-lock.json   wrangler.jsonc
+.git           DEPLOYMENT_SUMMARY.md    EMAIL_SETUP.md          dist                     package.json
+.github        DOCKER_QUICK_START.md    MIGRATION_SUMMARY.md    docker-compose.dev.yml   queryex
+.gitignore     DOCKER_REFERENCE.md      Makefile                docker-compose.prod.yml  requirements.txt
+root@vm571donc:~/web/dimeconsultants# cd .env.example
+-bash: cd: .env.example: No such file or directory
+root@vm571donc:~/web/dimeconsultants# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+root@vm571donc:~/web/dimeconsultants# git pull
+Already up to date.
+root@vm571donc:~/web/dimeconsultants# ls
+DEPLOY.md                DOCUMENTATION_INDEX.md  QUICK_START_VPS.md       docker-compose.dev.yml   package-lock.json  tsconfig.json
+DEPLOYMENT_CHECKLIST.md  Dockerfile              VPS_DEPLOYMENT_SETUP.md  docker-compose.prod.yml  package.json       vite.config.ts
+DEPLOYMENT_SUMMARY.md    Dockerfile.dev          build-setup.mjs          docker-compose.yml       queryex            wrangler.jsonc
+DOCKER_QUICK_START.md    Dockerfile.prod         bun.lockb                eslint.config.js         requirements.txt
+DOCKER_REFERENCE.md      EMAIL_SETUP.md          bunfig.toml              index.html               src
+DOCKER_SETUP.md          MIGRATION_SUMMARY.md    components.json          nginx.conf               start
+DOCKER_VPS_SETUP.md      Makefile                dist                     node_modules             test-email.js
+root@vm571donc:~/web/dimeconsultants# ls -a
+.              .prettierignore          DOCKER_SETUP.md         QUICK_START_VPS.md       docker-compose.yml  src
+..             .prettierrc              DOCKER_VPS_SETUP.md     VPS_DEPLOYMENT_SETUP.md  eslint.config.js    start
+.dockerignore  .replit                  DOCUMENTATION_INDEX.md  build-setup.mjs          index.html          test-email.js
+.env           .wrangler                Dockerfile              bun.lockb                nginx.conf          tsconfig.json
+.env.docker    DEPLOY.md                Dockerfile.dev          bunfig.toml              node_modules        vite.config.ts
+.env.pub       DEPLOYMENT_CHECKLIST.md  Dockerfile.prod         components.json          package-lock.json   wrangler.jsonc
+.git           DEPLOYMENT_SUMMARY.md    EMAIL_SETUP.md          dist                     package.json
+.github        DOCKER_QUICK_START.md    MIGRATION_SUMMARY.md    docker-compose.dev.yml   queryex
+.gitignore     DOCKER_REFERENCE.md      Makefile                docker-compose.prod.yml  requirements.txt
+root@vm571donc:~/web/dimeconsultants# nano .env
+root@vm571donc:~/web/dimeconsultants# docker build -f Dockerfile.prod -t dime-consultants .
+docker compose -f docker-compose.prod.yml up -d
+Sending build context to Docker daemon  1.106MB
+Step 1/13 : FROM node:22-alpine AS build
+ ---> dd720352b069
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> 6c05693040e2
+Step 3/13 : COPY package*.json ./
+ ---> c94742443f03
+Step 4/13 : RUN npm ci
+ ---> Running in 410c9b3f4e75
+npm notice
+npm notice New major version of npm available! 10.9.8 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+npm error Exit handler never called!
+npm error This is an error with npm itself. Please report this error at:
+npm error   <https://github.com/npm/cli/issues>
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-06-10T14_28_15_538Z-debug-0.log
+The command '/bin/sh -c npm ci' returned a non-zero code: 1
+WARN[0000] /root/web/dimeconsultants/docker-compose.prod.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] up 1/1
+ ✔ Container dime-ai-navigator Started                                                                                              1.8s
+root@vm571donc:~/web/dimeconsultants# sudo certbot --nginx -d dimeconsultants.africa -d www.dimeconsultants.africa
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Certificate not yet due for renewal
+
+You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+(ref: /etc/letsencrypt/renewal/dimeconsultants.africa.conf)
+
+What would you like to do?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Attempt to reinstall this existing certificate
+2: Renew & replace the certificate (may be subject to CA rate limits)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Renewing an existing certificate for dimeconsultants.africa and www.dimeconsultants.africa
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/dimeconsultants.africa/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/dimeconsultants.africa/privkey.pem
+This certificate expires on 2026-09-08.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+Deploying certificate
+Successfully deployed certificate for dimeconsultants.africa to /etc/nginx/sites-enabled/dimeconsultants.africa
+Successfully deployed certificate for www.dimeconsultants.africa to /etc/nginx/sites-enabled/dimeconsultants.africa
+Your existing certificate has been successfully renewed, and the new certificate has been installed.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

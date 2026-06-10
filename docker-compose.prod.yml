@@ -1,9 +1,6 @@
-# docker-compose.prod.yml
-version: "3.8"
-
 services:
   app:
-    image: ghcr.io/charlesdete/ai-navigator-frontend:latest
+    image: dime-consultants
     container_name: dime-ai-navigator
     ports:
       - "3030:3030"
@@ -23,6 +20,7 @@ services:
         max-file: "3"
     networks:
       - dime-network
+
 networks:
   dime-network:
     driver: bridge
